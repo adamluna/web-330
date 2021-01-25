@@ -1,8 +1,9 @@
 /*
 ============================================
 ; Title:  luna-exercise3.2.js
-; Author: Adam Luna
+; Author: Professor Krasso
 ; Date: 24 January 2021
+; Modified by: Adam Luna
 ; Description: This program shows how to use the Factory pattern.
 ;===========================================
 */
