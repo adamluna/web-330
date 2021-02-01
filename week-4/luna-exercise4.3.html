@@ -1,0 +1,55 @@
+<!--
+===============================================
+; Title: luna-exercise4.3.html
+; Author: Professor Krasso
+; Date: 31 January 2021
+; Modified By: Adam Luna
+; Description: This program demonstrates the DELETE operation using jQuery.
+===============================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 4.3</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>HTTP PUT and DELETE Operations</h1>
+    <!--Add an HTML button, assign it an ID, and give it a description-->
+    <button id="delete">Delete</button>
+    <script>
+      // Register an onClick event and create an object literal DELETE request to http://httpbin.org/delete Create a data object with at least 3 fields and assign it to the DELETE request (supply your own default values)
+      $(function () {
+        $("#delete").click(function () {
+          $.ajax({
+            url: "http://httpbin.org/delete",
+            dataType: "json",
+            type: "DELETE",
+
+            data: {
+              username: "aluna",
+              password: "R@ndompassword1",
+              email: "testemail@test.com",
+            },
+            success: function (data, status) {
+              // Using the console.log() function, output the results
+              console.log(
+                "Username: " +
+                  data.form.username +
+                  "\nPassword: " +
+                  data.form.password +
+                  "\nEmail: " +
+                  data.form.email +
+                  "\nStatus: " +
+                  status
+              );
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
