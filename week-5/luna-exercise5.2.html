@@ -1,0 +1,59 @@
+<!--
+===============================================
+; Title: luna-exercise5.2.html
+; Author: Professor Krasso
+; Date: 07 February 2021
+; Modified By: Adam Luna
+; Description: This program demonstrates the jQuery Proxy pattern.
+===============================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <!--Minimum CSS styling throughout-->
+    <!--h2 title-->
+    <h2 style="color: seagreen; font-weight: bold">Proxy Pattern Example</h2>
+
+    <!--button tag to trigger the display function event-->
+    <button id="btn" style="padding: 5px; margin-bottom: 15px;">Click this button!</button>
+
+    <!--span tag to output the results-->
+    <span id="proxy-pattern"></span>
+
+    <script>
+      $(function () {
+        var car = {
+          make: "Toyota",
+          model: "Tundra",
+          year: 2020,
+          color: "Grey",
+          display: function () {
+            // clear the span tag before appending the new values
+            $("#proxy-pattern").html("");
+            // The display function should append the field values to a span tag
+            $("#proxy-pattern").append(
+              "<br>Make: " +
+                this.make +
+                "<br>" +
+                "Model: " +
+                this.model +
+                "<br>" +
+                "Year: " +
+                this.year +
+                "<br>" +
+                "Color: " +
+                this.color
+            );
+          },
+        };
+        $("#btn").click($.proxy(car, "display"));
+      });
+    </script>
+  </body>
+</html>
